@@ -1,0 +1,53 @@
+Test: tests/test_candidates_bugs.py::test_ping_is_not_an_outlier_vs_status
+Saved: 2026-10-19 12:23:13
+Port: rfc2217://localhost:4000
+
+=== Device transcript (TX = to device, RX = from device) ===
+12:23:05 TX RESET
+12:23:05 RX {"status":"OK","reset":true}   (0.22s)
+12:23:05 TX SET LED OFF
+12:23:05 RX {"status":"OK","led":false}   (0.23s)
+12:23:06 TX SET PWM 0
+12:23:06 RX {"status":"OK","pwm":0}   (0.26s)
+12:23:06 TX STATUS
+12:23:06 RX {"status":"OK","led":false,"pwm":0,"heap":349852}   (0.22s)
+12:23:07 TX STATUS
+12:23:07 RX {"status":"OK","led":false,"pwm":0,"heap":349852}   (0.25s)
+12:23:07 TX STATUS
+12:23:08 RX {"status":"OK","led":false,"pwm":0,"heap":349852}   (0.24s)
+12:23:08 TX STATUS
+12:23:08 RX {"status":"OK","led":false,"pwm":0,"heap":349852}   (0.25s)
+12:23:08 TX STATUS
+12:23:09 RX {"status":"OK","led":false,"pwm":0,"heap":349852}   (0.23s)
+12:23:09 TX PING
+12:23:10 RX {"status":"OK","command":"PING"}   (1.36s)
+12:23:10 TX PING
+12:23:12 RX {"status":"OK","command":"PING"}   (1.35s)
+12:23:12 TX PING
+12:23:13 RX {"status":"OK","command":"PING"}   (1.37s)
+
+=== pytest failure ===
+device = <device.Device object at 0x7fdd73ffd880>
+record_property = <function record_property.<locals>.append_property at 0x7fdd74047310>
+
+    def test_ping_is_not_an_outlier_vs_status(device, record_property):
+        """evidence (heuristic, not a requirement): PING should not be several
+        times slower than STATUS. Medians of 5 STATUS and 3 PING requests."""
+        def median_latency(cmd, n):
+            values = []
+            for _ in range(n):
+                device.command_raw(cmd, timeout=5.0)
+                values.append(device.last_elapsed)
+            return statistics.median(values)
+    
+        status_s = median_latency("STATUS", 5)
+        ping_s = median_latency("PING", 3)
+        record_property("status_median_s", round(status_s, 2))
+        record_property("ping_median_s", round(ping_s, 2))
+>       assert ping_s <= 3 * status_s, (
+            f"PING median {ping_s:.2f}s is {ping_s / status_s:.1f}x STATUS median {status_s:.2f}s"
+        )
+E       AssertionError: PING median 1.36s is 5.7x STATUS median 0.24s
+E       assert 1.3617281149999982 <= (3 * 0.2404070640000029)
+
+tests/test_candidates_bugs.py:109: AssertionError

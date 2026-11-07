@@ -1,0 +1,18 @@
+name: "TC-33 Invalid input in DIRTY state"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set speed 50\n"
+  - delay: 101ms
+  - write-serial: "foo\n"
+  - wait-serial: "ERROR"
+  - write-serial: "set speed 999\n"
+  - wait-serial: "ERROR"
+  - write-serial: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  - wait-serial: "ERROR: command too long"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=50"
+  - wait-serial: "CONFIG=DIRTY"

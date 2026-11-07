@@ -1,0 +1,17 @@
+name: "TC-01 help"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "help\n"
+  - wait-serial: "Commands:"
+  - wait-serial: "help"
+  - wait-serial: "status"
+  - wait-serial: "set speed <0..255>"
+  - wait-serial: "set timeout <1..60>"
+  - wait-serial: "led on"
+  - wait-serial: "led off"
+  - wait-serial: "save"
+  - wait-serial: "reset"

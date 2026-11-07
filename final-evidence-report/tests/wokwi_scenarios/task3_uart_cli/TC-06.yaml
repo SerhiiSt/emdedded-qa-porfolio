@@ -1,0 +1,16 @@
+name: "TC-06 save"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set speed 100\n"
+  - delay: 101ms
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=100"
+  - wait-serial: "CONFIG=DIRTY"
+  - write-serial: "save\n"
+  - delay: 100ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG=SAVED"

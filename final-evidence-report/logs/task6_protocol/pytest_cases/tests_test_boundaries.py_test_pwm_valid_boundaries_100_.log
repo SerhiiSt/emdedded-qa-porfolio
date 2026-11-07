@@ -1,0 +1,27 @@
+Test: tests/test_boundaries.py::test_pwm_valid_boundaries[100]
+Saved: 2026-10-19 12:22:35
+Port: rfc2217://localhost:4000
+
+=== Device transcript (TX = to device, RX = from device) ===
+12:22:34 TX RESET
+12:22:34 RX {"status":"OK","reset":true}   (0.23s)
+12:22:34 TX SET LED OFF
+12:22:34 RX {"status":"OK","led":false}   (0.24s)
+12:22:34 TX SET PWM 0
+12:22:35 RX {"status":"OK","pwm":0}   (0.24s)
+12:22:35 TX SET PWM 100
+12:22:35 RX {"status":"ERROR","code":"INVALID_VALUE"}   (0.23s)
+
+=== pytest failure ===
+device = <device.Device object at 0x7fdd73fd4820>, value = 100
+
+    @pytest.mark.parametrize("value", [0, 1, 50, 99, 100])
+    def test_pwm_valid_boundaries(device, value):
+        r = device.command(f"SET PWM {value}")
+>       assert r["status"] == "OK"
+E       AssertionError: assert 'ERROR' == 'OK'
+E         
+E         - OK
+E         + ERROR
+
+tests/test_boundaries.py:6: AssertionError

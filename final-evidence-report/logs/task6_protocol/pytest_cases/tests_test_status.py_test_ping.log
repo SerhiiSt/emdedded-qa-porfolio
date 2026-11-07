@@ -1,0 +1,52 @@
+Test: tests/test_status.py::test_ping
+Saved: 2026-10-19 12:32:17
+Port: rfc2217://localhost:4000
+
+=== Device transcript (TX = to device, RX = from device) ===
+12:32:15 TX RESET
+12:32:15 RX {"status":"OK","reset":true}   (0.29s)
+12:32:15 TX SET LED OFF
+12:32:16 RX {"status":"OK","led":false}   (0.22s)
+12:32:16 TX SET PWM 0
+12:32:16 RX {"status":"OK","pwm":0}   (0.22s)
+12:32:16 TX PING
+12:32:17 RX <no response, timeout after 1.01s>
+
+=== pytest failure ===
+device = <device.Device object at 0x7fdd740768e0>
+
+    def test_ping(device):
+>       r = device.command("PING")
+
+tests/test_status.py:2: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+device.py:86: in command
+    raw = self.command_raw(command, timeout=timeout)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <device.Device object at 0x7fdd740768e0>, command = 'PING'
+timeout = None
+
+    def command_raw(self, command, timeout=None):
+        """Send one command and return the first reply line.
+        `timeout` overrides the read timeout for this call only."""
+        old_timeout = self.ser.timeout
+        if timeout is not None:
+            self.ser.timeout = timeout
+        try:
+            self.ser.reset_input_buffer()
+            self.log("TX", command)
+            start = time.monotonic()
+            self.ser.write((command + "\n").encode())
+            self.ser.flush()
+            line = self.ser.readline().decode(errors="replace").strip()
+            elapsed = time.monotonic() - start
+        finally:
+            self.ser.timeout = old_timeout
+        if not line:
+            self.timed_out = True
+            self.log("RX", f"<no response, timeout after {elapsed:.2f}s>")
+>           raise TimeoutError(f"No response for command: {command}")
+E           TimeoutError: No response for command: PING
+
+device.py:80: TimeoutError

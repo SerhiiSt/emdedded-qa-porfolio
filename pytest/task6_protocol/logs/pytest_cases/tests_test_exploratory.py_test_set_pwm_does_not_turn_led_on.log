@@ -1,0 +1,31 @@
+Test: tests/test_exploratory.py::test_set_pwm_does_not_turn_led_on
+Saved: 2026-10-19 12:25:28
+Port: rfc2217://localhost:4000
+
+=== Device transcript (TX = to device, RX = from device) ===
+12:25:26 TX RESET
+12:25:26 RX {"status":"OK","reset":true}   (0.26s)
+12:25:26 TX SET LED OFF
+12:25:27 RX {"status":"OK","led":false}   (0.23s)
+12:25:27 TX SET PWM 0
+12:25:27 RX {"status":"OK","pwm":0}   (0.23s)
+12:25:27 TX SET LED OFF
+12:25:28 RX {"status":"OK","led":false}   (0.23s)
+12:25:28 TX SET PWM 50
+12:25:28 RX {"status":"OK","pwm":50}   (0.28s)
+12:25:28 TX STATUS
+12:25:28 RX {"status":"OK","led":true,"pwm":127,"heap":349852}   (0.32s)
+
+=== pytest failure ===
+device = <device.Device object at 0x7fdd7405d2b0>
+
+    def test_set_pwm_does_not_turn_led_on(device):
+        """SET LED OFF, SET PWM 50, STATUS -> led must stay false.
+        If it is true the LED follows PWM: ask the requirement owner (req 4)."""
+        device.command("SET LED OFF")
+        device.command("SET PWM 50")
+        status = device.command("STATUS")
+>       assert status["led"] is False
+E       assert True is False
+
+tests/test_exploratory.py:53: AssertionError

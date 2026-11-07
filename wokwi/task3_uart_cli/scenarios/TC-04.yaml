@@ -1,0 +1,11 @@
+name: "TC-04 Set a valid timeout"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set timeout 30\n"
+  - delay: 101ms
+  - write-serial: "status\n"
+  - wait-serial: "TIMEOUT=30"

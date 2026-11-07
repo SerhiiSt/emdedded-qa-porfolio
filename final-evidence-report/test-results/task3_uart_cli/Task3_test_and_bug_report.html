@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UART CLI: звіт про виконання тестів і Bug reports</title>
+<style>
+:root{--bg:#fbfbfa;--ink:#1c2026;--mute:#667085;--line:#e4e6ea;--soft:#f1f3f5;--acc:#2457d6;--pass:#1a7f4b;--fail:#c42b2b;--warn:#a56a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15171a;--ink:#e8eaed;--mute:#9aa3af;--line:#2a2e34;--soft:#1e2126;--acc:#7da2ff;--pass:#4cc38a;--fail:#ff7b7b;--warn:#e0a030}}
+:root[data-theme="dark"]{--bg:#15171a;--ink:#e8eaed;--mute:#9aa3af;--line:#2a2e34;--soft:#1e2126;--acc:#7da2ff;--pass:#4cc38a;--fail:#ff7b7b;--warn:#e0a030}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:960px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:2rem;line-height:1.2;margin:0 0 8px;letter-spacing:-.02em}
+h2{font-size:1.25rem;margin:56px 0 12px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font-size:1.05rem;margin:0 0 8px}
+p{max-width:70ch;margin:0 0 12px}.mute{color:var(--mute)}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85em}
+code{background:var(--soft);padding:1px 5px;border-radius:4px}
+pre{margin:6px 0 0;padding:10px 12px;background:var(--soft);border-radius:6px;white-space:pre-wrap;word-break:break-word}
+nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:20px;font-size:.9rem}
+nav a{color:var(--acc);text-decoration:none}nav a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 24px;margin-top:16px;font-size:.9rem}
+.meta b{font-weight:600}
+.sum{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.sum div{border:1px solid var(--line);border-radius:8px;padding:8px 14px;min-width:96px}
+.sum b{display:block;font-size:1.4rem;line-height:1.2}.sum span{font-size:.8rem;color:var(--mute)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}th{font-weight:600;background:var(--soft);white-space:nowrap}
+td.n{white-space:nowrap;font-weight:600}
+.pill{font-weight:600;white-space:nowrap}.Pass{color:var(--pass)}.Fail{color:var(--fail)}.Partial{color:var(--warn)}
+.bug{border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:0 0 20px}
+.bug dl{display:grid;grid-template-columns:160px 1fr;gap:8px 16px;margin:0;font-size:.92rem}
+.bug dt{color:var(--mute)}.bug dd{margin:0}
+.bug ol,ul{margin:0;padding-left:20px}
+li{max-width:70ch}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:1px 10px;margin-right:6px;vertical-align:middle}
+@media (max-width:560px){.bug dl{grid-template-columns:1fr}.bug dt{margin-top:6px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>UART CLI Homework Device: звіт про виконання тестів і Bug reports</h1>
+<p class="mute">Результати 36 автоматизованих тест-кейсів, виконаних на прошивці v2.0 у симуляторі Wokwi, відносно вимог REQ-01 – REQ-16.</p>
+<div class="meta">
+<div><b>Прошивка</b> UART CLI HOMEWORK DEVICE v2.0</div>
+<div><b>Платформа</b> ESP32, симулятор Wokwi</div>
+<div><b>Інструмент</b> wokwi-cli v0.27.1, файли сценаріїв</div>
+<div><b>Дата виконання</b> 2026-10-03</div>
+<div><b>Докази</b> logs/TC-01 – TC-36, results.csv</div>
+</div>
+<nav><a href="#summary">Підсумок</a><a href="#bugs">Bug reports</a><a href="#coverage">Статус вимог</a><a href="#cases">Журнал виконання</a><a href="#notes">Примітки</a><a href="#conclusion">QA conclusion</a></nav>
+</header>
+
+<h2 id="summary">Підсумок</h2>
+<div class="sum" id="sum"></div>
+<p>Знайдено п'ять дефектів. Найсерйозніший: будь-який ввід довший за 40 символів призводить до збою й перезавантаження пристрою замість відповіді <code>ERROR: command too long</code>. Це порушує REQ-11, REQ-12, REQ-14 та REQ-16 і спричинило 8 із 13 непройдених тестів. Решта чотири дефекти стосуються валідації: швидкість, таймаут, чутливість до регістру та ввід зі спецсимволів.</p>
+
+<h2 id="bugs">Bug reports</h2>
+<div id="bugs"></div>
+
+<h2 id="coverage">Статус вимог</h2>
+<div class="scroll"><table><thead><tr><th>Вимога</th><th>Статус</th><th>Підстава</th></tr></thead><tbody id="cov"></tbody></table></div>
+
+<h2 id="cases">Журнал виконання</h2>
+<div class="scroll"><table><thead><tr><th>ID</th><th>Тест</th><th>Вимога</th><th>Результат</th><th>Фактичний результат</th><th>Bug</th></tr></thead><tbody id="rows"></tbody></table></div>
+
+<h2 id="notes">Примітки до виконання</h2>
+<ul>
+<li><b>Відтворюваність</b> — шкала від 1/5 до 5/5, де 5/5 означає, що баг стабільно відтворюється. Для BUG-02, BUG-04 і BUG-05 це підтверджено десятками спроб у логах, для BUG-01 і BUG-03 у наданих логах є по одній спробі (TC-10, TC-21).</li>
+<li>Сценарій зупиняється на першому невдалому кроці, тому наступні кроки не виконувались. Тести TC-21 і TC-34 виконані лише частково, а вказана помилка є першою знайденою, не обов'язково єдиною.</li>
+<li>Після перезавантаження пристрою сценарій не доходить до пізніших перевірок. Тому в TC-30, TC-33 і TC-36 команда <code>status</code> після збою не перевірялась.</li>
+<li>Код виходу 42 у <code>results.csv</code> означає, що сценарій завершився невдачею на кроці; причину видно в серійних логах.</li>
+<li><b>Priority</b> — моя пропозиція (High для Critical, Medium для Major); команда має її підтвердити.</li>
+<li>Спостереження, не дефект: після <code>led on</code> лишається <code>CONFIG=SAVED</code>, тоді як <code>set speed</code> встановлює <code>CONFIG=DIRTY</code>. У вимогах не сказано, чи входить LED у збережену конфігурацію, тож це потрібно уточнити.</li>
+</ul>
+
+<h2 id="conclusion">QA conclusion</h2>
+<p><b>Чи залежить crash від попередніх команд: ні.</b> У логах зафіксовано 52 збої з однією причиною (<code>input line boundary failure</code>), і жоден рядок довший за 40 символів не обійшовся без збою. Збій траплявся після різних попередніх дій: після <code>status</code> одразу після запуску, після валідної <code>set speed</code>, після відхиленої команди (<code>ERROR</code>), після прийнятого спецсимвола (<code>OK</code>), у стані DIRTY (TC-33) та повторно після перезавантаження. Вирішальна лише довжина рядка: 40 символів проходять (TC-26), 41 і більше призводять до збою, а вміст не має значення (літери A і валідна команда, доповнена пробілами до 60 символів у TC-31, дають однаковий результат).</p>
+<p><b>Висновок.</b> Прошивка v2.0 не готова до релізу: 23 з 36 тестів Pass (64%), 13 Fail, знайдено 5 bugs. BUG-05 (Critical) є блокером, бо будь-який надто довгий ввід по UART перезавантажує пристрій, що порушує REQ-16. Чотири bugs із Severity Major (BUG-01 – BUG-04) стосуються валідації вводу й порушують REQ-03, REQ-05, REQ-06 та REQ-08.</p>
+<p><b>Наступні кроки.</b> Виправити всі 5 bugs і повторно виконати TC-10, TC-17, TC-21, TC-24 та TC-27 – TC-36. Для TC-21 і TC-34 додатково перевірити кроки, що не виконались. Окремо перевірити, чи втрачаються незбережені зміни після збою і чи доступний <code>status</code> одразу після перезавантаження (REQ-15 лишається Partial).</p>
+</main>
+
+<script>
+var C=[
+["TC-01","help",[1],"P","Виведено список команд",""],
+["TC-02","status",[1],"P","Швидкість 120, таймаут 10, LED OFF, конфігурація SAVED",""],
+["TC-03","Валідна швидкість",[1,2],"P","OK: speed=100; status показує 100",""],
+["TC-04","Валідний таймаут",[1,4],"P","OK: timeout=30; status показує 30",""],
+["TC-05","LED увімкнено і вимкнено",[1],"P","status відповідає стану LED ON і OFF",""],
+["TC-06","save",[1],"P","CONFIG=DIRTY після зміни, OK: configuration saved, далі CONFIG=SAVED",""],
+["TC-07","reset",[1],"P","OK: reset; швидкість 120 і таймаут 10 відновлено",""],
+["TC-08","Нижня межа швидкості",[2],"P","OK: speed=0",""],
+["TC-09","Верхня межа швидкості",[2],"P","OK: speed=255",""],
+["TC-10","Швидкість трохи вище діапазону",[3],"F","set speed 256 повернула OK: speed=255 (значення прийнято і змінено)","BUG-01"],
+["TC-11","Від'ємна швидкість",[3],"P","ERROR: speed out of range; швидкість лишається 77",""],
+["TC-12","Швидкість далеко за діапазоном",[3],"P","ERROR: speed out of range; швидкість лишається 77",""],
+["TC-13","Нецілочисельна швидкість",[2,3],"P","ERROR: invalid speed для abc і 1.5",""],
+["TC-14","Відсутнє значення швидкості",[7],"P","ERROR: invalid speed; швидкість лишається 77",""],
+["TC-15","Нижня межа таймауту",[4],"P","OK: timeout=1",""],
+["TC-16","Верхня межа таймауту",[4],"P","OK: timeout=60",""],
+["TC-17","Таймаут нижче діапазону",[5],"F","set timeout 0 повернула OK: timeout=0 (значення прийнято)","BUG-02"],
+["TC-18","Таймаут вище діапазону",[5],"P","ERROR: timeout out of range; таймаут лишається 33",""],
+["TC-19","Від'ємний таймаут",[5],"P","ERROR: timeout out of range; таймаут лишається 33",""],
+["TC-20","Нецілочисельний таймаут",[4,5],"P","ERROR: invalid timeout для 2.5 і xyz",""],
+["TC-21","Чутливість до регістру",[6],"F","HELP дала ERROR, але Status виконалась і вивела статус. LED ON та Set speed 10 не перевірені","BUG-03"],
+["TC-22","Невідомі команди",[7],"P","ERROR: unknown command для всіх трьох",""],
+["TC-23","Неповні команди",[7],"P","ERROR для set, set speed, set timeout, led",""],
+["TC-24","Лише спецсимволи",[8],"F","Усі 5 вводів зі спецсимволів повернули OK","BUG-04"],
+["TC-25","Невалідний ввід не змінює конфігурацію",[9],"P","Усі невалідні рядки дали ERROR; status без змін (77, 33, LED ON)",""],
+["TC-26","Рівно 40 символів",[10],"P","ERROR: unknown command; збою немає",""],
+["TC-27","41 символ",[11],"F","SYSTEM FAULT і перезавантаження; помилки too long немає","BUG-05"],
+["TC-28","200 символів",[11,12],"F","4 перезавантаження; помилки too long немає","BUG-05"],
+["TC-29","1000 символів",[11,12],"F","11 перезавантажень; помилки too long немає","BUG-05"],
+["TC-30","Валідна команда після довгого вводу",[12],"F","4 перезавантаження; наступний status не досягнуто","BUG-05"],
+["TC-31","Валідна команда з доповненням понад 40",[9,11],"F","SYSTEM FAULT і перезавантаження замість помилки too long","BUG-05"],
+["TC-32","Однакова помилка за будь-якої історії",[13],"P","Однакова ERROR: unknown command після кожної з 4 історій",""],
+["TC-33","Невалідний ввід у стані DIRTY",[14,16],"F","foo і 999 дали ERROR; рядок із 41 символу спричинив збій і перезавантаження","BUG-05"],
+["TC-34","status після кожного типу помилки",[15],"F","Кроки 1 і 2 пройдені; set timeout 0 повернула OK: timeout=0, решту не досягнуто","BUG-02"],
+["TC-35","Стрес: змішаний невалідний ввід",[16],"F","timeout 0 і !@#$% повернули OK; кожен рядок із 41 символу спричинив перезавантаження (усього 20)","BUG-02, 04, 05"],
+["TC-36","Швидкий пакет довгих рядків",[12,16],"F","10 перезавантажень; помилки too long немає","BUG-05"]];
+var B=[
+{id:"BUG-01",t:"Швидкість 256 приймається й мовчки встановлюється як 255",sev:"Major",pr:"Medium",req:"REQ-03 (також REQ-02)",tc:"TC-10",
+steps:["Надіслати set speed 77","Надіслати set speed 256"],exp:"Повертається ERROR, швидкість лишається 77.",act:"Пристрій відповідає OK: speed=255 і змінює швидкість.",
+rep:"5/5: баг стабільно відтворюється (підтверджено виконанням TC-10)",
+ev:"> OK: speed=77\n> OK: speed=255",n:"Інші значення поза діапазоном обробляються правильно: -1 (TC-11), 999 (TC-33) і 100000 (TC-12) повертають ERROR: speed out of range."},
+{id:"BUG-02",t:"Значення таймауту 0 приймається",sev:"Major",pr:"Medium",req:"REQ-05 (також REQ-04)",tc:"TC-17, TC-34, TC-35",
+steps:["Надіслати set timeout 33","Надіслати set timeout 0"],exp:"Повертається ERROR, таймаут лишається 33.",act:"Пристрій відповідає OK: timeout=0 і встановлює таймаут 0.",
+rep:"5/5: баг стабільно відтворюється (22 з 22 спроб: по 1 у TC-17 і TC-34, 20 з 20 циклів у TC-35)",
+ev:"> OK: timeout=33\n> OK: timeout=0",n:"61 (TC-18) і -5 (TC-19) відхиляються правильно, тож помилкова лише нижня межа."},
+{id:"BUG-03",t:"Команда status не чутлива до регістру",sev:"Major",pr:"Medium",req:"REQ-06",tc:"TC-21",
+steps:["Надіслати HELP","Надіслати Status"],exp:"Обидва рядки повертають ERROR.",act:"HELP повертає ERROR: unknown command, але Status виконується й виводить повний статус.",
+rep:"5/5: баг стабільно відтворюється (підтверджено виконанням TC-21)",
+ev:"> ERROR: unknown command\n> SPEED=77\nTIMEOUT=10\nLED=OFF\nCONFIG=DIRTY",n:"LED ON і Set speed 10 не перевірені, бо сценарій зупинився, тож їх ще треба перевірити."},
+{id:"BUG-04",t:"Ввід лише зі спецсимволів вважається валідною командою",sev:"Major",pr:"Medium",req:"REQ-08",tc:"TC-24, TC-35",
+steps:["Надіслати по одному рядку: !@#$%^&*(), ;;;;, три подвійні лапки, три зворотні скісні риски, ~`|<>?"],exp:"ERROR: unknown command, пристрій без змін.",act:"Пристрій відповідає OK на всі 5 вводів зі спецсимволів. Коротший ввід !@#$% (TC-35) також повертає OK.",
+rep:"5/5: баг стабільно відтворюється (25 з 25 спроб: 5 у TC-24, 20 з 20 циклів у TC-35)",
+ev:"> OK\n>",n:"Протестовано всі варіанти вводу зі спецсимволів (5 у TC-24 та !@#$% у TC-35), і всі повернули OK. Після цих вводів status не змінився: конфігурація лишилась та сама."},
+{id:"BUG-05",t:"Ввід довший за 40 символів призводить до збою й перезавантаження пристрою",sev:"Critical",pr:"High",req:"REQ-11, REQ-12, REQ-14, REQ-16",tc:"TC-27 – TC-31, TC-33, TC-35, TC-36",
+steps:["Відкрити UART-консоль","Надіслати рядок із 41 символу, наприклад 41 раз літеру A"],exp:"ERROR: command too long, пристрій продовжує працювати.",
+act:"Пристрій виводить системний збій і перезавантажується. ERROR: command too long не з'являється. Після перезавантаження виводиться ERROR: empty command.",
+rep:"5/5: баг стабільно відтворюється, кожен рядок довший за 40 символів спричинив збій (26 з 26: по 1 у TC-27 – TC-31 та TC-33, 20 з 20 у TC-35); у TC-36 (пакет) збої теж відтворились",
+ev:"*** SYSTEM FAULT ***\nReason: input line boundary failure\nrst:0xc (SW_CPU_RESET)\nRebooting...\n...READY\n> ERROR: empty command",
+n:"Що довший ввід, то більше перезавантажень: 41 символ дав 1, 200 дали 4, 1000 дали 11. У TC-35 кожен із 20 надто довгих рядків спричинив одне перезавантаження. Рівно 40 символів обробляються правильно (TC-26). Чи втрачаються незбережені зміни в стані DIRTY (TC-33), не перевірено. Залежності від попередніх команд не виявлено: усі 52 збої в логах мають однакову причину і траплялись після будь-якої команди (див. QA conclusion)."}];
+var V=[["REQ-01","Pass","TC-01 – TC-07"],["REQ-02","Pass","TC-03, TC-08, TC-09, TC-13"],["REQ-03","Fail","BUG-01"],["REQ-04","Pass","TC-04, TC-15, TC-16, TC-20"],["REQ-05","Fail","BUG-02"],["REQ-06","Fail","BUG-03"],["REQ-07","Pass","TC-14, TC-22, TC-23"],["REQ-08","Fail","BUG-04"],["REQ-09","Partial","TC-25 пройдено; TC-31 зупинився на перезавантаженні (BUG-05) до перевірки конфігурації"],["REQ-10","Pass","TC-26: 40 символів оброблено нормально"],["REQ-11","Fail","BUG-05"],["REQ-12","Fail","BUG-05"],["REQ-13","Pass","TC-32"],["REQ-14","Fail","BUG-05 (TC-33)"],["REQ-15","Partial","TC-34 двічі пройдено, далі зупинка на BUG-02; status після збою не досягнуто"],["REQ-16","Fail","BUG-05"]];
+var L={Pass:"Pass",Fail:"Fail",Partial:"Partial"};
+function e(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var p=C.filter(function(c){return c[3]=="P"}).length,f=C.length-p;
+document.getElementById("sum").innerHTML=[[C.length,"Виконано"],[p,"Pass"],[f,"Fail"],[0,"Not run"],[B.length,"Bugs"]].map(function(x){return "<div><b>"+x[0]+"</b><span>"+x[1]+"</span></div>"}).join("");
+document.getElementById("bugs").innerHTML=B.map(function(b){return "<article class=\"bug\"><h3><span class=\"tag\">"+b.id+"</span>"+e(b.t)+"</h3><dl><dt>Severity</dt><dd>"+b.sev+"</dd><dt>Priority</dt><dd>"+b.pr+"</dd><dt>Вимога</dt><dd>"+e(b.req)+"</dd><dt>Знайдено в</dt><dd>"+e(b.tc)+"</dd><dt>Кроки відтворення</dt><dd><ol>"+b.steps.map(function(s){return "<li>"+e(s)+"</li>"}).join("")+"</ol></dd><dt>Очікуваний результат</dt><dd>"+e(b.exp)+"</dd><dt>Фактичний результат</dt><dd>"+e(b.act)+"</dd><dt>Докази з логів</dt><dd><pre>"+e(b.ev)+"</pre></dd><dt>Відтворюваність</dt><dd><b>"+e(b.rep.split(":")[0])+"</b>:"+e(b.rep.slice(b.rep.indexOf(":")+1))+"</dd><dt>Примітки</dt><dd>"+e(b.n)+"</dd></dl></article>"}).join("");
+document.getElementById("cov").innerHTML=V.map(function(v){return "<tr><td class=\"n\">"+v[0]+"</td><td class=\"pill "+v[1]+"\">"+L[v[1]]+"</td><td>"+e(v[2])+"</td></tr>"}).join("");
+document.getElementById("rows").innerHTML=C.map(function(c){var r=c[3]=="P"?"Pass":"Fail";return "<tr><td class=\"n\">"+c[0]+"</td><td>"+e(c[1])+"</td><td>"+c[2].map(function(x){return "REQ-"+(x<10?"0":"")+x}).join(", ")+"</td><td class=\"pill "+r+"\">"+L[r]+"</td><td>"+e(c[4])+"</td><td>"+c[5]+"</td></tr>"}).join("");
+</script>
+</body>
+</html>

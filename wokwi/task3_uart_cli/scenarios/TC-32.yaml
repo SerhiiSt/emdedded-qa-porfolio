@@ -1,0 +1,24 @@
+name: "TC-32 Same error after any history"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "foo\n"
+  - wait-serial: "ERROR"
+  - write-serial: "set speed 10\n"
+  - delay: 101ms
+  - write-serial: "foo\n"
+  - wait-serial: "ERROR"
+  - write-serial: "led on\n"
+  - delay: 100ms
+  - write-serial: "foo\n"
+  - wait-serial: "ERROR"
+  - write-serial: "save\n"
+  - delay: 100ms
+  - write-serial: "foo\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=10"
+  - wait-serial: "LED=ON"

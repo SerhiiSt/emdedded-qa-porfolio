@@ -1,0 +1,13 @@
+name: "TC-09 Speed upper boundary"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set speed 77\n"
+  - delay: 101ms
+  - write-serial: "set speed 255\n"
+  - delay: 101ms
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=255"

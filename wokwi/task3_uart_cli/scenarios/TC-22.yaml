@@ -1,0 +1,15 @@
+name: "TC-22 Unknown commands"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "foo\n"
+  - wait-serial: "ERROR"
+  - write-serial: "reboot\n"
+  - wait-serial: "ERROR"
+  - write-serial: "set volume 5\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED="

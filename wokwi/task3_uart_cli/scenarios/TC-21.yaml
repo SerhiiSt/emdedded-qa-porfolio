@@ -1,0 +1,20 @@
+name: "TC-21 Case sensitivity"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set speed 77\n"
+  - delay: 101ms
+  - write-serial: "HELP\n"
+  - wait-serial: "ERROR"
+  - write-serial: "Status\n"
+  - wait-serial: "ERROR"
+  - write-serial: "LED ON\n"
+  - wait-serial: "ERROR"
+  - write-serial: "Set speed 10\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=77"
+  - wait-serial: "LED=OFF"

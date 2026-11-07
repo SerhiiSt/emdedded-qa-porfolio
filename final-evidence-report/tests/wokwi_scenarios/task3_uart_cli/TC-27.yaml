@@ -1,0 +1,11 @@
+name: "TC-27 41 characters"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  - wait-serial: "ERROR: command too long"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED="

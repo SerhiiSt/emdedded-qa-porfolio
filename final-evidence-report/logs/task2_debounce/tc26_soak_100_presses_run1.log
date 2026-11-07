@@ -1,0 +1,1519 @@
+Wokwi CLI v0.27.1 (ffde06bde1ae)
+Diagram issues in /Users/Sergio/Documents/QA_Embedded/Gate/Task2/Debounce_Homework_VSCode_LogicAnalyzer_Logger/diagram.json:
+⚠ [invalid-attribute] Unknown attribute "label" for part "logic1" (type: wokwi-logic-analyzer) (logic1)
+ℹ [unsupported-part] Part "esp" uses undocumented type "wokwi-esp32-devkit-v1". This part may change or be removed in future versions. (esp)
+Connected to Wokwi Simulation API 1.0.0-20260927-g0e36f09d
+Starting simulation...
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+
+ESP32 BUTTON / INTERRUPT / DEBOUNCE DEMO
+[TC-26 100 presses mixed with noise taps] Expected text matched: "DEBOUNCE DEMO"
+[TC-26 100 presses mixed with noise taps] delay 200ms
+----------------------------------------
+GPIO18 -> INTERRUPT -> ISR -> DEBOUNCE -> EVENT
+
+Green BUTTON = physical button with bouncing
+Red NOISE    = artificial noise input
+
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #1
+Button press ACCEPTED
+RAW interrupts total: 65
+RAW interrupts since previous logical event: 65
+LOGICAL events total: 1
+ACTIONS total: 1
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SYSTEM] Critical operation is running...
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #2
+Button press ACCEPTED
+RAW interrupts total: 194
+RAW interrupts since previous logical event: 129
+LOGICAL events total: 2
+ACTIONS total: 2
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #3
+Button press ACCEPTED
+RAW interrupts total: 344
+RAW interrupts since previous logical event: 150
+LOGICAL events total: 3
+ACTIONS total: 3
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #4
+Button press ACCEPTED
+RAW interrupts total: 494
+RAW interrupts since previous logical event: 150
+LOGICAL events total: 4
+ACTIONS total: 4
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #5
+Button press ACCEPTED
+RAW interrupts total: 656
+RAW interrupts since previous logical event: 162
+LOGICAL events total: 5
+ACTIONS total: 5
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #6
+Button press ACCEPTED
+RAW interrupts total: 789
+RAW interrupts since previous logical event: 133
+LOGICAL events total: 6
+ACTIONS total: 6
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #7
+Button press ACCEPTED
+RAW interrupts total: 868
+RAW interrupts since previous logical event: 79
+LOGICAL events total: 7
+ACTIONS total: 7
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+
+[LOGGER] RAW interrupts: 868 | Logical events: 7 | Actions: 7
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #8
+Button press ACCEPTED
+RAW interrupts total: 1021
+RAW interrupts since previous logical event: 153
+LOGICAL events total: 8
+ACTIONS total: 8
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #9
+Button press ACCEPTED
+RAW interrupts total: 1203
+RAW interrupts since previous logical event: 182
+LOGICAL events total: 9
+ACTIONS total: 9
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #10
+Button press ACCEPTED
+RAW interrupts total: 1370
+RAW interrupts since previous logical event: 167
+LOGICAL events total: 10
+ACTIONS total: 10
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #11
+Button press ACCEPTED
+RAW interrupts total: 1511
+RAW interrupts since previous logical event: 141
+LOGICAL events total: 11
+ACTIONS total: 11
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #12
+Button press ACCEPTED
+RAW interrupts total: 1595
+RAW interrupts since previous logical event: 84
+LOGICAL events total: 12
+ACTIONS total: 12
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #13
+Button press ACCEPTED
+RAW interrupts total: 1744
+RAW interrupts since previous logical event: 149
+LOGICAL events total: 13
+ACTIONS total: 13
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #14
+Button press ACCEPTED
+RAW interrupts total: 1864
+RAW interrupts since previous logical event: 120
+LOGICAL events total: 14
+ACTIONS total: 14
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #15
+Button press ACCEPTED
+RAW interrupts total: 1942
+RAW interrupts since previous logical event: 78
+LOGICAL events total: 15
+ACTIONS total: 15
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #16
+Button press ACCEPTED
+RAW interrupts total: 2101
+RAW interrupts since previous logical event: 159
+LOGICAL events total: 16
+ACTIONS total: 16
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[SERIAL] Wokwi UART alive
+
+[LOGGER] RAW interrupts: 2196 | Logical events: 16 | Actions: 16
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #17
+Button press ACCEPTED
+RAW interrupts total: 2283
+RAW interrupts since previous logical event: 182
+LOGICAL events total: 17
+ACTIONS total: 17
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #18
+Button press ACCEPTED
+RAW interrupts total: 2336
+RAW interrupts since previous logical event: 53
+LOGICAL events total: 18
+ACTIONS total: 18
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #19
+Button press ACCEPTED
+RAW interrupts total: 2478
+RAW interrupts since previous logical event: 142
+LOGICAL events total: 19
+ACTIONS total: 19
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #20
+Button press ACCEPTED
+RAW interrupts total: 2536
+RAW interrupts since previous logical event: 58
+LOGICAL events total: 20
+ACTIONS total: 20
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #21
+Button press ACCEPTED
+RAW interrupts total: 2657
+RAW interrupts since previous logical event: 121
+LOGICAL events total: 21
+ACTIONS total: 21
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #22
+Button press ACCEPTED
+RAW interrupts total: 2691
+RAW interrupts since previous logical event: 34
+LOGICAL events total: 22
+ACTIONS total: 22
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #23
+Button press ACCEPTED
+RAW interrupts total: 2782
+RAW interrupts since previous logical event: 91
+LOGICAL events total: 23
+ACTIONS total: 23
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #24
+Button press ACCEPTED
+RAW interrupts total: 2918
+RAW interrupts since previous logical event: 136
+LOGICAL events total: 24
+ACTIONS total: 24
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #25
+Button press ACCEPTED
+RAW interrupts total: 3067
+RAW interrupts since previous logical event: 149
+LOGICAL events total: 25
+ACTIONS total: 25
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #26
+Button press ACCEPTED
+RAW interrupts total: 3222
+RAW interrupts since previous logical event: 155
+LOGICAL events total: 26
+ACTIONS total: 26
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #27
+Button press ACCEPTED
+RAW interrupts total: 3372
+RAW interrupts since previous logical event: 150
+LOGICAL events total: 27
+ACTIONS total: 27
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 3448 | Logical events: 27 | Actions: 27
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #28
+Button press ACCEPTED
+RAW interrupts total: 3511
+RAW interrupts since previous logical event: 139
+LOGICAL events total: 28
+ACTIONS total: 28
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #29
+Button press ACCEPTED
+RAW interrupts total: 3585
+RAW interrupts since previous logical event: 74
+LOGICAL events total: 29
+ACTIONS total: 29
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #30
+Button press ACCEPTED
+RAW interrupts total: 3723
+RAW interrupts since previous logical event: 138
+LOGICAL events total: 30
+ACTIONS total: 30
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #31
+Button press ACCEPTED
+RAW interrupts total: 3839
+RAW interrupts since previous logical event: 116
+LOGICAL events total: 31
+ACTIONS total: 31
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #32
+Button press ACCEPTED
+RAW interrupts total: 4026
+RAW interrupts since previous logical event: 187
+LOGICAL events total: 32
+ACTIONS total: 32
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #33
+Button press ACCEPTED
+RAW interrupts total: 4200
+RAW interrupts since previous logical event: 174
+LOGICAL events total: 33
+ACTIONS total: 33
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #34
+Button press ACCEPTED
+RAW interrupts total: 4342
+RAW interrupts since previous logical event: 142
+LOGICAL events total: 34
+ACTIONS total: 34
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #35
+Button press ACCEPTED
+RAW interrupts total: 4494
+RAW interrupts since previous logical event: 152
+LOGICAL events total: 35
+ACTIONS total: 35
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #36
+Button press ACCEPTED
+RAW interrupts total: 4599
+RAW interrupts since previous logical event: 105
+LOGICAL events total: 36
+ACTIONS total: 36
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #37
+Button press ACCEPTED
+RAW interrupts total: 4706
+RAW interrupts since previous logical event: 107
+LOGICAL events total: 37
+ACTIONS total: 37
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 4769 | Logical events: 37 | Actions: 
+[TC-26 100 presses mixed with noise taps] delay 80ms
+37
+
+================================
+LOGICAL EVENT #38
+Button press ACCEPTED
+RAW interrupts total: 4839
+RAW interrupts since previous logical event: 133
+LOGICAL events total: 38
+ACTIONS total: 38
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #39
+Button press ACCEPTED
+RAW interrupts total: 4980
+RAW interrupts since previous logical event: 141
+LOGICAL events total: 39
+ACTIONS total: 39
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #40
+Button press ACCEPTED
+RAW interrupts total: 5095
+RAW interrupts since previous logical event: 115
+LOGICAL events total: 40
+ACTIONS total: 40
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #41
+Button press ACCEPTED
+RAW interrupts total: 5183
+RAW interrupts since previous logical event: 88
+LOGICAL events total: 41
+ACTIONS total: 41
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #42
+Button press ACCEPTED
+RAW interrupts total: 5259
+RAW interrupts since previous logical event: 76
+LOGICAL events total: 42
+ACTIONS total: 42
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #43
+Button press ACCEPTED
+RAW interrupts total: 5409
+RAW interrupts since previous logical event: 150
+LOGICAL events total: 43
+ACTIONS total: 43
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #44
+Button press ACCEPTED
+RAW interrupts total: 5519
+RAW interrupts since previous logical event: 110
+LOGICAL events total: 44
+ACTIONS total: 44
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #45
+Button press ACCEPTED
+RAW interrupts total: 5591
+RAW interrupts since previous logical event: 72
+LOGICAL events total: 45
+ACTIONS total: 45
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #46
+Button press ACCEPTED
+RAW interrupts total: 5757
+RAW interrupts since previous logical event: 166
+LOGICAL events total: 46
+ACTIONS total: 46
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #47
+Button press ACCEPTED
+RAW interrupts total: 5836
+RAW interrupts since previous logical event: 79
+LOGICAL events total: 47
+ACTIONS total: 47
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #48
+Button press ACCEPTED
+RAW interrupts total: 6007
+RAW interrupts since previous logical event: 171
+LOGICAL events total: 48
+ACTIONS total: 48
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 6100 | Logical events: 48 | Actions: 48
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #49
+Button press ACCEPTED
+RAW interrupts total: 6198
+RAW interrupts since previous logical event: 191
+LOGICAL events total: 49
+ACTIONS total: 49
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #50
+Button press ACCEPTED
+RAW interrupts total: 6319
+RAW interrupts since previous logical event: 121
+LOGICAL events total: 50
+ACTIONS total: 50
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #51
+Button press ACCEPTED
+RAW interrupts total: 6438
+RAW interrupts since previous logical event: 119
+LOGICAL events total: 51
+ACTIONS total: 51
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #52
+Button press ACCEPTED
+RAW interrupts total: 6532
+RAW interrupts since previous logical event: 94
+LOGICAL events total: 52
+ACTIONS total: 52
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #53
+Button press ACCEPTED
+RAW interrupts total: 6681
+RAW interrupts since previous logical event: 149
+LOGICAL events total: 53
+ACTIONS total: 53
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #54
+Button press ACCEPTED
+RAW interrupts total: 6796
+RAW interrupts since previous logical event: 115
+LOGICAL events total: 54
+ACTIONS total: 54
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #55
+Button press ACCEPTED
+RAW interrupts total: 6958
+RAW interrupts since previous logical event: 162
+LOGICAL events total: 55
+ACTIONS total: 55
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #56
+Button press ACCEPTED
+RAW interrupts total: 7089
+RAW interrupts since previous logical event: 131
+LOGICAL events total: 56
+ACTIONS total: 56
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #57
+Button press ACCEPTED
+RAW interrupts total: 7232
+RAW interrupts since previous logical event: 143
+LOGICAL events total: 57
+ACTIONS total: 57
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #58
+Button press ACCEPTED
+RAW interrupts total: 7401
+RAW interrupts since previous logical event: 169
+LOGICAL events total: 58
+ACTIONS total: 58
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #59
+Button press ACCEPTED
+RAW interrupts total: 7507
+RAW interrupts since previous logical event: 106
+LOGICAL events total: 59
+ACTIONS total: 59
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+
+[LOGGER] RAW interrupts: 7507 | Logical events: 59 | Actions: 59
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #60
+Button press ACCEPTED
+RAW interrupts total: 7688
+RAW interrupts since previous logical event: 181
+LOGICAL events total: 60
+ACTIONS total: 60
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #61
+Button press ACCEPTED
+RAW interrupts total: 7814
+RAW interrupts since previous logical event: 126
+LOGICAL events total: 61
+ACTIONS total: 61
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #62
+Button press ACCEPTED
+RAW interrupts total: 7856
+RAW interrupts since previous logical event: 42
+LOGICAL events total: 62
+ACTIONS total: 62
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #63
+Button press ACCEPTED
+RAW interrupts total: 8029
+RAW interrupts since previous logical event: 173
+LOGICAL events total: 63
+ACTIONS total: 63
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #64
+Button press ACCEPTED
+RAW interrupts total: 8160
+RAW interrupts since previous logical event: 131
+LOGICAL events total: 64
+ACTIONS total: 64
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #65
+Button press ACCEPTED
+RAW interrupts total: 8325
+RAW interrupts since previous logical event: 165
+LOGICAL events total: 65
+ACTIONS total: 65
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #66
+Button press ACCEPTED
+RAW interrupts total: 8416
+RAW interrupts since previous logical event: 91
+LOGICAL events total: 66
+ACTIONS total: 66
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #67
+Button press ACCEPTED
+RAW interrupts total: 8464
+RAW interrupts since previous logical event: 48
+LOGICAL events total: 67
+ACTIONS total: 67
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #68
+Button press ACCEPTED
+RAW interrupts total: 8593
+RAW interrupts since previous logical event: 129
+LOGICAL events total: 68
+ACTIONS total: 68
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #69
+Button press ACCEPTED
+RAW interrupts total: 8756
+RAW interrupts since previous logical event: 163
+LOGICAL events total: 69
+ACTIONS total: 69
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #70
+Button press ACCEPTED
+RAW interrupts total: 8904
+RAW interrupts since previous logical event: 148
+LOGICAL events total: 70
+ACTIONS total: 70
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 89
+[TC-26 100 presses mixed with noise taps] delay 80ms
+37 | Logical events: 70 | Actions: 70
+
+================================
+LOGICAL EVENT #71
+Button press ACCEPTED
+RAW interrupts total: 8980
+RAW interrupts since previous logical event: 76
+LOGICAL events total: 71
+ACTIONS total: 71
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #72
+Button press ACCEPTED
+RAW interrupts total: 9108
+RAW interrupts since previous logical event: 128
+LOGICAL events total: 72
+ACTIONS total: 72
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #73
+Button press ACCEPTED
+RAW interrupts total: 9265
+RAW interrupts since previous logical event: 157
+LOGICAL events total: 73
+ACTIONS total: 73
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #74
+Button press ACCEPTED
+RAW interrupts total: 9424
+RAW interrupts since previous logical event: 159
+LOGICAL events total: 74
+ACTIONS total: 74
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #75
+Button press ACCEPTED
+RAW interrupts total: 9532
+RAW interrupts since previous logical event: 108
+LOGICAL events total: 75
+ACTIONS total: 75
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #76
+Button press ACCEPTED
+RAW interrupts total: 9588
+RAW interrupts since previous logical event: 56
+LOGICAL events total: 76
+ACTIONS total: 76
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #77
+Button press ACCEPTED
+RAW interrupts total: 9735
+RAW interrupts since previous logical event: 147
+LOGICAL events total: 77
+ACTIONS total: 77
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #78
+Button press ACCEPTED
+RAW interrupts total: 9919
+RAW interrupts since previous logical event: 184
+LOGICAL events total: 78
+ACTIONS total: 78
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #79
+Button press ACCEPTED
+RAW interrupts total: 10062
+RAW interrupts since previous logical event: 143
+LOGICAL events total: 79
+ACTIONS total: 79
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #80
+Button press ACCEPTED
+RAW interrupts total: 10152
+RAW interrupts since previous logical event: 90
+LOGICAL events total: 80
+ACTIONS total: 80
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #81
+Button press ACCEPTED
+RAW interrupts total: 10267
+RAW interrupts since previous logical event: 115
+LOGICAL events total: 81
+ACTIONS total: 81
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 10301 | Logical events: 81 | Actions: 81
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #82
+Button press ACCEPTED
+RAW interrupts total: 10332
+RAW interrupts since previous logical event: 65
+LOGICAL events total: 82
+ACTIONS total: 82
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #83
+Button press ACCEPTED
+RAW interrupts total: 10422
+RAW interrupts since previous logical event: 90
+LOGICAL events total: 83
+ACTIONS total: 83
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #84
+Button press ACCEPTED
+RAW interrupts total: 10508
+RAW interrupts since previous logical event: 86
+LOGICAL events total: 84
+ACTIONS total: 84
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #85
+Button press ACCEPTED
+RAW interrupts total: 10672
+RAW interrupts since previous logical event: 164
+LOGICAL events total: 85
+ACTIONS total: 85
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #86
+Button press ACCEPTED
+RAW interrupts total: 10781
+RAW interrupts since previous logical event: 109
+LOGICAL events total: 86
+ACTIONS total: 86
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #87
+Button press ACCEPTED
+RAW interrupts total: 10867
+RAW interrupts since previous logical event: 86
+LOGICAL events total: 87
+ACTIONS total: 87
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #88
+Button press ACCEPTED
+RAW interrupts total: 10971
+RAW interrupts since previous logical event: 104
+LOGICAL events total: 88
+ACTIONS total: 88
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #89
+Button press ACCEPTED
+RAW interrupts total: 11075
+RAW interrupts since previous logical event: 104
+LOGICAL events total: 89
+ACTIONS total: 89
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #90
+Button press ACCEPTED
+RAW interrupts total: 11258
+RAW interrupts since previous logical event: 183
+LOGICAL events total: 90
+ACTIONS total: 90
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #91
+Button press ACCEPTED
+RAW interrupts total: 11380
+RAW interrupts since previous logical event: 122
+LOGICAL events total: 91
+ACTIONS total: 91
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 11481 | Logical events: 91 | Actions: 91
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #92
+Button press ACCEPTED
+RAW interrupts total: 11552
+RAW interrupts since previous logical event: 172
+LOGICAL events total: 92
+ACTIONS total: 92
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #93
+Button press ACCEPTED
+RAW interrupts total: 11709
+RAW interrupts since previous logical event: 157
+LOGICAL events total: 93
+ACTIONS total: 93
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #94
+Button press ACCEPTED
+RAW interrupts total: 11839
+RAW interrupts since previous logical event: 130
+LOGICAL events total: 94
+ACTIONS total: 94
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #95
+Button press ACCEPTED
+RAW interrupts total: 12028
+RAW interrupts since previous logical event: 189
+LOGICAL events total: 95
+ACTIONS total: 95
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #96
+Button press ACCEPTED
+RAW interrupts total: 12211
+RAW interrupts since previous logical event: 183
+LOGICAL events total: 96
+ACTIONS total: 96
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26 100 presses mixed with noise taps] delay 150ms
+Button RELEASE accepted
+[TC-26 100 presses mixed with noise taps] delay 500us
+[TC-26 100 presses mixed with noise taps] delay 100ms
+[TC-26 100 presses mixed with noise taps] delay 80ms
+
+================================
+LOGICAL EVENT #97
+Button press ACCEPTED
+RAW interrupts total: 12415
+RAW interrupts since previous logical event: 204
+LOGICAL events total: 97
+ACTIONS t

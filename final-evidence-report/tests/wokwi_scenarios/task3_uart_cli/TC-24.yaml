@@ -1,0 +1,19 @@
+name: "TC-24 Special characters only"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "!@#$%^&*()\n"
+  - wait-serial: "ERROR"
+  - write-serial: ";;;;\n"
+  - wait-serial: "ERROR"
+  - write-serial: "\"\"\"\n"
+  - wait-serial: "ERROR"
+  - write-serial: "\\\\\\\n"
+  - wait-serial: "ERROR"
+  - write-serial: "~`|<>?\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED="

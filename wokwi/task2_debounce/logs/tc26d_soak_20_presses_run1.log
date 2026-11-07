@@ -1,0 +1,340 @@
+Wokwi CLI v0.27.1 (ffde06bde1ae)
+Diagram issues in /Users/Sergio/Documents/QA_Embedded/Gate/Task2/Debounce_Homework_VSCode_LogicAnalyzer_Logger/diagram.json:
+⚠ [invalid-attribute] Unknown attribute "label" for part "logic1" (type: wokwi-logic-analyzer) (logic1)
+ℹ [unsupported-part] Part "esp" uses undocumented type "wokwi-esp32-devkit-v1". This part may change or be removed in future versions. (esp)
+Connected to Wokwi Simulation API 1.0.0-20261001-g3f6ebbc6
+Starting simulation...
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+
+ESP32 BUTTON / INTERRUPT / DEBOUNCE DEMO
+[TC-26d soak part 4 of 5] Expected text matched: "DEBOUNCE DEMO"
+[TC-26d soak part 4 of 5] delay 200ms
+----------------------------------------
+GPIO18 -> INTERRUPT -> ISR -> DEBOUNCE -> EVENT
+
+Green BUTTON = physical button with bouncing
+Red NOISE    = artificial noise input
+
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #1
+Button press ACCEPTED
+RAW interrupts total: 47
+RAW interrupts since previous logical event: 47
+LOGICAL events total: 1
+ACTIONS total: 1
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SYSTEM] Critical operation is running...
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #2
+Button press ACCEPTED
+RAW interrupts total: 172
+RAW interrupts since previous logical event: 125
+LOGICAL events total: 2
+ACTIONS total: 2
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #3
+Button press ACCEPTED
+RAW interrupts total: 311
+RAW interrupts since previous logical event: 139
+LOGICAL events total: 3
+ACTIONS total: 3
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #4
+Button press ACCEPTED
+RAW interrupts total: 474
+RAW interrupts since previous logical event: 163
+LOGICAL events total: 4
+ACTIONS total: 4
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[SERIAL] Wokwi UART alive
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #5
+Button press ACCEPTED
+RAW interrupts total: 632
+RAW interrupts since previous logical event: 158
+LOGICAL events total: 5
+ACTIONS total: 5
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #6
+Button press ACCEPTED
+RAW interrupts total: 771
+RAW interrupts since previous logical event: 139
+LOGICAL events total: 6
+ACTIONS total: 6
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #7
+Button press ACCEPTED
+RAW interrupts total: 942
+RAW interrupts since previous logical event: 171
+LOGICAL events total: 7
+ACTIONS total: 7
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+[LOGGER] RAW interrupts: 1045 | Logical events: 7 | Actions: 7
+
+================================
+LOGICAL EVENT #8
+Button press ACCEPTED
+RAW interrupts total: 1045
+RAW interrupts since previous logical event: 103
+LOGICAL events total: 8
+ACTIONS total: 8
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #9
+Button press ACCEPTED
+RAW interrupts total: 1155
+RAW interrupts since previous logical event: 110
+LOGICAL events total: 9
+ACTIONS total: 9
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #10
+Button press ACCEPTED
+RAW interrupts total: 1257
+RAW interrupts since previous logical event: 102
+LOGICAL events total: 10
+ACTIONS total: 10
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #11
+Button press ACCEPTED
+RAW interrupts total: 1365
+RAW interrupts since previous logical event: 108
+LOGICAL events total: 11
+ACTIONS total: 11
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[SERIAL] Wokwi UART alive
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #12
+Button press ACCEPTED
+RAW interrupts total: 1464
+RAW interrupts since previous logical event: 99
+LOGICAL events total: 12
+ACTIONS total: 12
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #13
+Button press ACCEPTED
+RAW interrupts total: 1613
+RAW interrupts since previous logical event: 149
+LOGICAL events total: 13
+ACTIONS total: 13
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #14
+Button press ACCEPTED
+RAW interrupts total: 1705
+RAW interrupts since previous logical event: 92
+LOGICAL events total: 14
+ACTIONS total: 14
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #15
+Button press ACCEPTED
+RAW interrupts total: 1822
+RAW interrupts since previous logical event: 117
+LOGICAL events total: 15
+ACTIONS total: 15
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #16
+Button press ACCEPTED
+RAW interrupts total: 1990
+RAW interrupts since previous logical event: 168
+LOGICAL events total: 16
+ACTIONS total: 16
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #17
+Button press ACCEPTED
+RAW interrupts total: 2134
+RAW interrupts since previous logical event: 144
+LOGICAL events total: 17
+ACTIONS total: 17
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #18
+Button press ACCEPTED
+RAW interrupts total: 2221
+RAW interrupts since previous logical event: 87
+LOGICAL events total: 18
+ACTIONS total: 18
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+
+[LOGGER] RAW interrupts: 2279 | Logical events: 18 | Actions: 18
+[SERIAL] Wokwi UART alive
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #19
+Button press ACCEPTED
+RAW interrupts total: 2308
+RAW interrupts since previous logical event: 87
+LOGICAL events total: 19
+ACTIONS total: 19
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 80ms
+
+================================
+LOGICAL EVENT #20
+Button press ACCEPTED
+RAW interrupts total: 2455
+RAW interrupts since previous logical event: 147
+LOGICAL events total: 20
+ACTIONS total: 20
+ACTION executed ONCE
+LOGGER: physical press -> RAW -> LOGICAL -> ACTION
+================================
+[TC-26d soak part 4 of 5] delay 150ms
+Button RELEASE accepted
+[TC-26d soak part 4 of 5] delay 500us
+[TC-26d soak part 4 of 5] delay 100ms
+[TC-26d soak part 4 of 5] delay 3500ms
+[SERIAL] Wokwi UART alive
+[SYSTEM] Critical operation finished.
+
+[LOGGER] RAW interrupts: 2494 | Logical events: 20 | Actions: 20
+[SERIAL] Wokwi UART alive
+[TC-26d soak part 4 of 5] Scenario completed successfully

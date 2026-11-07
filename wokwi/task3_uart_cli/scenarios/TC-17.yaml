@@ -1,0 +1,13 @@
+name: "TC-17 Timeout below range"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set timeout 33\n"
+  - delay: 101ms
+  - write-serial: "set timeout 0\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "TIMEOUT=33"

@@ -1,0 +1,11 @@
+name: "TC-26 Exactly 40 characters"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED="

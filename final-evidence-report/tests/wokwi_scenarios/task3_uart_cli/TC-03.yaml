@@ -1,0 +1,11 @@
+name: "TC-03 Set a valid speed"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set speed 100\n"
+  - delay: 101ms
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=100"

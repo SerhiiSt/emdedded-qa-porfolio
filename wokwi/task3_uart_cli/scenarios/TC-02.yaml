@@ -1,0 +1,12 @@
+name: "TC-02 status"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "status\n"
+  - wait-serial: "SPEED=120"
+  - wait-serial: "TIMEOUT=10"
+  - wait-serial: "LED=OFF"
+  - wait-serial: "CONFIG="

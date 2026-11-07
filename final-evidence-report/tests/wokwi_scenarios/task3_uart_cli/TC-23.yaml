@@ -1,0 +1,17 @@
+name: "TC-23 Incomplete commands"
+version: 1
+steps:
+  - wait-serial: "READY"
+  - delay: 300ms
+  - write-serial: "status\n"
+  - wait-serial: "CONFIG="
+  - write-serial: "set\n"
+  - wait-serial: "ERROR"
+  - write-serial: "set speed\n"
+  - wait-serial: "ERROR"
+  - write-serial: "set timeout\n"
+  - wait-serial: "ERROR"
+  - write-serial: "led\n"
+  - wait-serial: "ERROR"
+  - write-serial: "status\n"
+  - wait-serial: "SPEED="
